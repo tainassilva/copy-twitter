@@ -1,3 +1,4 @@
-INSERT INTO tb_roles (role_id, name) VALUES (1, "ROLE_ADMIN")
-INSERT INTO tb_roles (role_id, name) VALUES (2, "ROLE_BASIC")
+INSERT INTO tb_roles (name) VALUES ('ADMIN');
+INSERT INTO tb_roles (name) VALUES ('BASIC');
+
 

@@ -1,6 +1,8 @@
 package br.com.taina.copy_twitter.entity;
 
+import br.com.taina.copy_twitter.dto.LoginRequestDto;
 import jakarta.persistence.*;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.util.Set;
 import java.util.UUID;
@@ -27,6 +29,14 @@ public class User {
             inverseJoinColumns = @JoinColumn(name = "role_id")
     )
     private Set<Role> roles;
+
+    // Senha que vem do request e a senha que vem do banco de dados criptografada
+    // O encoder verifica senhas de forma segura. No Spring Security, o PasswordEncoder
+    // é utilizado para comparar senhas de maneira segura, sem expor as senhas em texto simples.
+    public boolean isLoginCorrect(LoginRequestDto loginRequestDto, PasswordEncoder passwordEncoder){
+        return passwordEncoder.matches(loginRequestDto.password(), this.password);
+    }
+
 
     public User() {
     }

@@ -52,7 +52,7 @@ public class Role {
         BASIC(2L);
 
 
-        final long roleIdd;
+        final Long roleIdd;
 
         Values(long roleIdd) {
             this.roleIdd = roleIdd;
